@@ -1,0 +1,14 @@
+<% provide(:title, "Edit micropost") %>
+<h1>Update your micropost</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+	<%= form_for(@micropost) do |f| %>
+	  <%= render 'shared/error_messages', object: f.object %>
+	  <div class="field">
+	    <%= f.text_area :content, placeholder: "Compose new micropost..." %>
+	  </div>
+	  <%= f.submit "Edit", class: "btn btn-large btn-primary" %>
+	<% end %>
+  </div>
+</div>

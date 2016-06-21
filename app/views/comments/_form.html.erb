@@ -1,0 +1,11 @@
+<%= form_for([@micropost, @micropost.comments.build]) do |f| %>
+    <input name="comment[commenter]" id="comment_commenter" value="<%=@micropost.user.name %>" type="hidden">
+
+    <%= f.label :commenter %>
+    <%= f.text_field :commenter %>
+
+    <%= f.label :body %>
+    <%= f.text_area :body %>
+
+    <%= f.submit "Create a comment", class: "btn btn-large btn-primary" %>
+<% end %>

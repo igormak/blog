@@ -1,0 +1,26 @@
+<% provide(:title, @micropost.content) %>
+<div class="row">
+  <aside class="span4">
+        <div class="span8">
+          	<ol class="microposts">
+        		<li>
+				  <span class="content"><%= @micropost.content %></span>
+				  <span class="timestamp">
+				    Posted <%= time_ago_in_words(@micropost.created_at) %> ago.
+				  </span>
+				  <% if current_user?(@micropost.user) %>
+				    	<%= link_to "edit", edit_micropost_path(@micropost), title: @micropost.content %>
+				    	<%= link_to "delete", @micropost, method: :delete,
+				                                     data: { confirm: "You sure?" },
+				                                     title: @micropost.content %>
+				  <% end %>
+				  
+				  <h2>Comments</h2>
+				  <%= render @micropost.comments %>
+				  <h2>Add a commet</h2>
+				  <%= render 'comments/form' %>
+				</li>
+      		</ol>	
+  		</div>
+    </aside>
+</div>
